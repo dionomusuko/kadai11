@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
 def index
-    @images = Image.all
+    @images = Image.order(params[:sort])
 end
 def new
     @image = Image.new
@@ -20,8 +20,10 @@ def edit
 end
 def update
     image = Image.find(params[:id])
+    title = params[:image][:title]
     file = params[:image][:file].read
     image.update(file: file)
+    image.update(title: title)
     redirect_to '/'
 end
 def get_image

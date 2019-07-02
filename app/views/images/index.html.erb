@@ -6,4 +6,8 @@
  <%= image_tag  "/get_image/#{image.id}" %>
  </p>
 <%end%>
-<p><%= link_to  '新規追加', 'images/new' %></p>
+<p><%= link_to  '新規追加', 'images/new' %>
+    <%= link_to  '昇順', sort: '#{image.title}' %>
+    <%= link_to  '降順', 'images/new' %>
+    <%= link_to  '入力順', 'images/new' %>
+</p>
